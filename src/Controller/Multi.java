@@ -18,10 +18,18 @@ import java.util.concurrent.Semaphore;
 		this.seg1=seg1;
 	}
 	public void run(){
-		
-		Calculos();
 		try {
-			if(p==1)
+			double ss= seg1/1000;
+			sleep ((long) ss);
+			Calculos();
+		} catch (InterruptedException e1) {
+			
+			e1.printStackTrace();
+		}
+		
+		try {
+			double s=seg/1000;
+			sleep((long) s);
 			s1.acquire();
 			transação();
 			
@@ -35,6 +43,9 @@ import java.util.concurrent.Semaphore;
 		
 		
 	}
+	
+		
+	
 	private void transação() {
 		double s =  seg/10;
 		System.out.println("Trasação de BD por " + s + " Segundos -> Threads" + p);

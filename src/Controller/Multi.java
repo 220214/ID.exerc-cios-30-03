@@ -11,15 +11,13 @@ import java.util.concurrent.Semaphore;
 
 	public Multi(Semaphore s1, int p, double seg, double seg1) {
 		this.s1=s1;
-		//this.s2=s2;
-		//this.s3 =s3;
 		this.seg= seg;
 		this.p=p;
 		this.seg1=seg1;
 	}
 	public void run(){
 		try {
-			double ss= seg1/1000;
+			double ss= seg1/10000;
 			sleep ((long) ss);
 			Calculos();
 		} catch (InterruptedException e1) {
@@ -28,7 +26,7 @@ import java.util.concurrent.Semaphore;
 		}
 		
 		try {
-			double s=seg/1000;
+			double s=seg/10000;
 			sleep((long) s);
 			s1.acquire();
 			transação();
